@@ -91,6 +91,10 @@ export const Modal = ({
   }, []);
 
   useEffect(() => {
+    // Scroll content to top when modal is opened
+    const modal = document.querySelector('[aria-modal="true"]');
+    modal.scrollTop = 0;
+    
     const keyDown = (e) => {
       const listener = keyListenersMap.get(e.keyCode);
       return listener && listener(e);
